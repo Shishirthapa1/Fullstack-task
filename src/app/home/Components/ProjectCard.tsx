@@ -13,24 +13,26 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ id, title, category, createdAt, description, imageUrl }: ProjectCardProps) => {
+    const fallbackImage = "/images/fallback.png";
+
+    const safeImage =
+        imageUrl && imageUrl.startsWith("http") ? imageUrl : fallbackImage;
+
     return (
         <div className="relative bg-[#1e1e1e] rounded-xl border border-gray-700 overflow-hidden hover:shadow-lg hover:shadow-black/30 lg:h-[490px] md:h-[450px] sm:h-[400px] h-[300px] transition-all duration-300">
-            {imageUrl && (
-                <Image
-                    src={imageUrl}
-                    alt={title}
-                    width={400}
-                    height={250}
-                    className="absolute inset-0 w-full h-full object-cover"
-                />
-            )}
+            <Image
+                src={safeImage}
+                alt={title || "Project Image"}
+                width={400}
+                height={250}
+                className="absolute inset-0 w-full h-full object-cover"
+            />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
             <div className="relative font-quicksand z-10 p-5 flex flex-col h-full justify-end">
                 {category && (
-                    <span className="inline-block w-fit bg-button-gradient
-px-5 py-2 mb-3 lg:text-sm md:text-xs text-[10px] font-medium text-white rounded-full">
+                    <span className="inline-block w-fit bg-button-gradient px-5 py-2 mb-3 lg:text-sm md:text-xs text-[10px] font-medium text-white rounded-full">
                         {category}
                     </span>
                 )}

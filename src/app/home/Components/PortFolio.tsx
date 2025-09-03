@@ -26,7 +26,7 @@ const PortFolio = () => {
             </div>
             <div className="lg:py-16 md:py-14 py-10 md:px-0 sm:px-6 px-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-6 gap-5 lg:gap-7">
-                    {projects.map((project, index) => (
+                    {projects.slice(0, 5).map((project, index) => (
                         <ProjectCard key={index} {...project} />
                     ))}
                     <div className="bg-[#1e1e1e] rounded-xl border lg:h-[490px] md:h-[450px] sm:h-[400px] h-[300px] border-gray-700 p-5 flex flex-col items-center justify-center text-center font-quicksand hover:shadow-lg hover:shadow-black/30 transition-all duration-300">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Homepage = () => {
+const HeroSection = () => {
     return (
         <div
             style={{
@@ -20,14 +20,16 @@ const Homepage = () => {
                     portfolio.
                 </p>
 
-                <button
-                    className="inline-block rounded-l-0 rounded-r-4xl border border-gray-400 lg:px-6 md:px-5 px-3 md:py-4 py-3 lg:text-base md:text-sm text-xs text-white hover:bg-white lg:ml-10 md:ml-8 ml-4 hover:text-black transition"
+                <a
+                    href="/ShishirThapa_Resume.pdf"
+                    download
+                    className="inline-block rounded-l-0 rounded-r-4xl border border-gray-400 lg:px-6 md:px-5 px-3 md:py-4 py-3 lg:text-base md:text-sm text-xs text-white hover:bg-white lg:ml-10 md:ml-8 ml-4 hover:text-black transition ease-in-out duration-300"
                 >
                     Download resume
-                </button>
+                </a>
             </div>
         </div>
     );
 };
 
-export default Homepage;
+export default HeroSection;

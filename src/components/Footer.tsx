@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-br from-[#0d0d0d] to-[#1a1a1a] text-white py-2 h-auto divide-[#555555] divide-y-2 md:divide-x-2 bg-cover bg-center"
+        <footer className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-br from-[#0d0d0d] to-[#1a1a1a] text-white py-2 h-auto divide-[#555555] divide-y-2 md:divide-y-0 divide-x-0 md:divide-x-2 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/footerbg.jpg')" }}>
 
             <div className="text-left w-full lg:w-[45%] md:w-[50%] mb-6 h-full lg:py-15 md:py-14 py-12 md:px-7 px-6 lg:px-8 md:mb-0">

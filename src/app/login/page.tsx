@@ -42,24 +42,24 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="max-w-md w-full space-y-8">
+        <div className="min-h-screen flex items-center md:px-4 px-6 justify-center bg-gray-50">
+            <div className="max-w-lg w-full space-y-8 px-4 py-6 md:px-6 md:py-8 bg-slate-100 shadow-lg rounded-md">
                 <div>
-                    <h2 className="mt-6 text-center text-3xl font-bold font-quicksand text-gray-900">
+                    <h2 className="mt-6 text-center text-xl md:text-2xl lg:text-3xl font-bold font-quicksand text-gray-900">
                         Login
                     </h2>
 
                 </div>
 
                 <div className="mt-8 space-y-6">
-                    <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
-                        <h3 className="text-sm font-medium text-blue-700 mb-2">Only Admin Can Log in</h3>
+                    <div className="bg-blue-50 border border-blue-200 rounded-md lg:p-4 md:p-3 p-2">
+                        <h3 className="md:text-xs text-[10px] lg:text-sm font-medium text-center text-[#1447e6]">Only Admin Can Log in</h3>
 
                     </div>
 
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block md:text-xs text-[10px] lg:text-sm font-medium text-gray-700">
                                 Email Address
                             </label>
                             <input
@@ -68,13 +68,13 @@ export default function LoginPage() {
                                 required
                                 value={credentials.email}
                                 onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 md:text-xs text-[10px] lg:text-sm focus:outline-none focus:border-blue-500"
                                 placeholder="Enter your email"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="password" className="block md:text-xs text-[10px] lg:text-sm font-medium text-gray-700">
                                 Password
                             </label>
                             <input
@@ -83,7 +83,7 @@ export default function LoginPage() {
                                 required
                                 value={credentials.password}
                                 onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full px-3 py-2 border border-gray-300 md:text-xs text-[10px] lg:text-sm  rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:border-blue-500"
                                 placeholder="Enter your password"
                             />
                         </div>
@@ -91,7 +91,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent cursor-pointer text-sm font-medium rounded-md text-white bg-[#15a90d] disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent cursor-pointer md:text-xs text-[10px] lg:text-sm font-medium rounded-md text-white bg-[#15a90d] disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {loading ? 'Logging in...' : 'Login'}
                         </button>

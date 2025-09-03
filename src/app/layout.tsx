@@ -5,8 +5,8 @@ import { Toaster } from 'react-hot-toast';
 
 
 export const metadata: Metadata = {
-  title: 'Projects Showcase',
-  description: 'Next.js + GSAP + Postgres demo',
+  title: 'Portfolio',
+  description: 'A Portfolio Website made using Next.js + GSAP + Postgres + TailwindCss',
 }
 
 
