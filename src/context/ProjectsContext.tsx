@@ -38,7 +38,6 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
             setProjects(data);
         } catch (err) {
             console.error(err);
-            toast.error("Failed to load projects");
         }
     };
 
