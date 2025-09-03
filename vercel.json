@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "DATABASE_URL": "@DATABASE_URL"
+    },
+    "installCommand": "npm install",
+    "buildCommand": "npx prisma generate && npm run build"
+  }
+}
