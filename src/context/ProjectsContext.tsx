@@ -14,12 +14,12 @@ export interface Project {
 
 }
 
-
 interface ProjectsContextType {
     projects: Project[];
     fetchProjects: () => Promise<void>;
     addProject: (p: Omit<Project, "id">) => Promise<void>;
     updateProject: (id: number, p: Partial<Project>) => Promise<void>;
+    deleteProject: (id: number) => Promise<void>;
 }
 
 
@@ -74,12 +74,26 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const deleteProject = async (id: number) => {
+        try {
+            const res = await fetch(`/api/projects/${id}`, {
+                method: "DELETE",
+            });
+            if (!res.ok) throw new Error("Failed to delete project");
+            toast.success("Project deleted successfully");
+            await fetchProjects();
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to delete project");
+        }
+    };
+
     useEffect(() => {
         fetchProjects();
     }, []);
 
 
-    const value = useMemo(() => ({ projects, fetchProjects, addProject, updateProject }), [projects])
+    const value = useMemo(() => ({ projects, fetchProjects, addProject, updateProject, deleteProject }), [projects])
     return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>
 }
 

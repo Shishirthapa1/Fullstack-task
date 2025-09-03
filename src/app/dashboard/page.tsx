@@ -2,9 +2,15 @@
 import { useState } from "react";
 import { useProjects } from "@/context/ProjectsContext";
 import toast from "react-hot-toast";
+import EditProjectDialog, { ProjectType } from "@/components/EditProjectDialog";
+import DeleteProjectDialog from "@/components/DeleteProjectDialog";
 
 export default function ProjectsPage() {
-    const { projects, addProject, updateProject } = useProjects();
+    const { projects, addProject } = useProjects();
+    const [editProject, setEditProject] = useState<boolean>(false)
+    const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+
+    const [selectedProject, setSelectedProject] = useState<ProjectType>();
     const [form, setForm] = useState({
         title: "",
         description: "",
@@ -27,7 +33,7 @@ export default function ProjectsPage() {
     return (
         <div className="p-6 max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold text-gray-800">Projects Dashboard</h1>
+                <h1 className="text-3xl font-bold text-gray-800 font-abeezee">Projects Dashboard</h1>
                 <button
                     onClick={logout}
                     className="bg-[red] text-white px-4 py-2 rounded-md hover:bg-[#c40505] transition cursor-pointer"
@@ -96,18 +102,46 @@ export default function ProjectsPage() {
                         <p className="text-xs text-gray-400 mb-3">
                             Created: {new Date(project?.createdAt ?? Date.now()).toLocaleDateString()}
                         </p>
+                        <div className="mt-4 flex items-center gap-3">
+                            <button
+                                onClick={() => {
+                                    setSelectedProject(project);
+                                    setEditProject(true);
+                                }}
+                                className="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium 
+               hover:bg-green-600 transition-colors duration-200 shadow-sm hover:shadow-md cursor-pointer"
+                            >
+                                Update
+                            </button>
 
-                        <button
-                            onClick={() =>
-                                updateProject(project.id, { title: project.title + " (Updated)" })
-                            }
-                            className="mt-auto bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm transition"
-                        >
-                            Quick Update
-                        </button>
+                            <button
+                                onClick={() => {
+                                    setIsDeleteOpen(true);
+                                    setSelectedProject(project);
+                                }}
+                                className="flex-1 bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium 
+               hover:bg-red-600 transition-colors duration-200 shadow-sm hover:shadow-md cursor-pointer"
+                            >
+                                Delete
+                            </button>
+                        </div>
+
                     </div>
                 ))}
             </div>
+            {selectedProject && (
+                <EditProjectDialog
+                    onClose={() => setEditProject(false)}
+                    project={selectedProject}
+                    open={editProject}
+                />
+            )}
+            {selectedProject && (
+                <DeleteProjectDialog
+                    onClose={() => setIsDeleteOpen(false)}
+                    open={isDeleteOpen}
+                    projectId={selectedProject.id} />
+            )}
         </div>
     );
 }

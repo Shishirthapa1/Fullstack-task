@@ -9,13 +9,11 @@ export default function Home() {
   return (
     <div className="bg-home">
       <NavBar />
-
       <Homepage />
       <PortFolio />
       <OutputSection />
       <AboutMe />
       <Footer />
-
     </div>
   );
 }

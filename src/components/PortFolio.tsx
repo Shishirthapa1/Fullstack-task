@@ -1,24 +1,13 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { MdArrowRightAlt } from "react-icons/md";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
-
-const projects = [
-    {
-        image: "/images/project1.png",
-        category: "Website",
-        title: "Site design for IT company",
-    },
-    {
-        image: "/images/project2.png",
-        category: "App Design",
-        title: "Travel app design",
-    },
-
-];
+import { useProjects } from "@/context/ProjectsContext";
 
 const PortFolio = () => {
+    const { projects } = useProjects();
     return (
         <div className="bg-home w-full py-2 px-global">
             <div className="w-full flex sm:flex-row flex-col items-center justify-between">
@@ -26,7 +15,7 @@ const PortFolio = () => {
 
                 <div>
                     <Link
-                        href="/portfolio"
+                        href=""
                         className="text-white font-abeezee lg:text-3xl md:text-2xl sm:text-xl text-lg hover:underline flex items-center gap-1 sm:gap-2"
                     >
                         <p>See the Portfolio</p>

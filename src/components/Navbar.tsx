@@ -26,7 +26,7 @@ export default function NavBar() {
     }, [])
 
     return (
-        <div className="relative mt-6 z-40 lg:h-[4rem] md:h-[3.5rem] h-[3rem] flex w-full justify-center px-global">
+        <div className="absolute mt-6 z-40 lg:h-[4rem] md:h-[3.5rem] h-[3rem] flex w-full justify-center px-global">
             <nav
                 ref={ref}
                 className="flex w-full items-center md:justify-end justify-between md:gap-16 gap-0 rounded-full border border-white/20 bg-white md:p-1 p-[2px] shadow-lg font-quicksand"

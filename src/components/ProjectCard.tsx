@@ -3,17 +3,21 @@ import Link from "next/link";
 import React from "react";
 
 type ProjectCardProps = {
-    image?: string;
-    category?: string;
+    id: number;
     title: string;
+    category: string;
+    description: string;
+    imageUrl?: string;
+    createdAt?: string;
+
 };
 
-const ProjectCard = ({ image, category, title, }: ProjectCardProps) => {
+const ProjectCard = ({ id, title, category, createdAt, description, imageUrl }: ProjectCardProps) => {
     return (
         <div className="relative bg-[#1e1e1e] rounded-xl border border-gray-700 overflow-hidden hover:shadow-lg hover:shadow-black/30 lg:h-[490px] md:h-[450px] sm:h-[400px] h-[300px] transition-all duration-300">
-            {image && (
+            {imageUrl && (
                 <Image
-                    src={image}
+                    src={imageUrl}
                     alt={title}
                     width={400}
                     height={250}
